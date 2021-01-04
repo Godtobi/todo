@@ -37,19 +37,6 @@ class TodoRepository extends BaseRepository
 
     }
 
-    public function show(TodoList $todoList)
-    {
-
-        try {
-            return $todoList;
-        }
-        catch (ModelNotFoundException $e) {
-            throw new ModelNotFoundException("Todo not found");
-        }
-        catch (\Exception $e) {
-            throw $e;
-        }
-    }
 
     public function createTodo($data){
         try {

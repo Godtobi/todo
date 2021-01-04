@@ -60,7 +60,7 @@ class TodoApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(TodoList $todo)
+    public function show($todo)
     {
         return $this->sendSuccessResponseWithData($todo->load("user"));
     }
