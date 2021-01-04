@@ -15,6 +15,8 @@ class TodoList extends Model
         return $this->belongsTo(User::class);
     }
 
+
+
     public static function boot()
     {
         parent::boot();

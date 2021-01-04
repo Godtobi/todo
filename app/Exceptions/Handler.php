@@ -59,7 +59,6 @@ class Handler extends ExceptionHandler
         if ($request->is('api/*')) {
             if ($exception instanceof ModelNotFoundException) {
                 abort(404);
-                //return $this->sendError($exception->getMessage(),404);
             }
             if ($exception instanceof ValidationException) {
                 $exceptions = $exception->validator->errors()->first();

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\TodoList;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -30,10 +32,22 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+        Route::bind('todo', function ($value) {
+            $todo = TodoList::find($value);
+            if(empty($todo)){
+                abort(404);
+            }
+            return $todo;
+        });
 
+        Route::bind('user', function ($value) {
+            $user = User::find($value);
+            if(empty($user)){
+                abort(404);
+            }
+            return $user;
+        });
 
     }
 
